@@ -4,6 +4,10 @@ import java.sql.*;
 
 import models.Juego;
 import models.Requisitos;
+import models.Categorias;
+import java.util.ArrayList;
+import java.util.Collections;
+import java.util.List;
 
 public class Conector implements IConector{
 
@@ -35,9 +39,11 @@ public class Conector implements IConector{
 		
 	}
 	
+	@Override
 	public Juego getJuego(int id){
 		
 		Juego juego = null;
+		ArrayList<Categorias> categorias = null;
 		
 		try{
 		
@@ -49,16 +55,74 @@ public class Conector implements IConector{
 			
 			
 			while (rs.next()){
-				juego = new Juego(rs.get)
+				//Obtención de las categorías
+				String values = rs.getString("categoria");
+				List<String> valuesSet = new ArrayList();
+				Collections.addAll(valuesSet, values.split(";"));
+				
+				for (Categorias c:Categorias.values()) {
+					if (valuesSet.contains(c.name())) {
+						categorias.add(c);
+					}
+				}
+				//------------------------------------
+				
+				juego = new Juego(rs.getInt("id"),
+						rs.getString("titulo"),
+						rs.getString("descripcion"),
+						getRequisito(rs.getInt("requisitos")),
+						rs.getBytes("caratula"),
+						rs.getFloat("precio"),
+						categorias);
 			}
+			rs.close();
 		}catch(SQLException e){
-			
+			e.printStackTrace();
 		}
 		
+		return juego;
 	}
 	
-	private Requisitos getRequisito(int id){
+	private Requisitos getRequisito(int idRequisito){
 		
+		Requisitos requisito = null;
+		
+		try{
+		
+			String sql = "SELECT * FROM Juego WHERE idRequisito =" +idRequisito;
+			
+			stmnt = conexion.createStatement();
+			
+			ResultSet rs = stmnt.executeQuery(sql);
+			
+			
+			while (rs.next()){
+				requisito = new Requisitos(rs.getInt("idRequisito"),
+						rs.getString("procesador"),
+						rs.getString("grafica"),
+						rs.getString("ram"),
+						rs.getString("so"),
+						rs.getString("almacenamiento"));
+			}
+			
+			rs.close();
+			
+			
+			
+		}catch(SQLException e ){
+			
+			e.printStackTrace();
+		}
+		
+		return requisito;
+	}
+
+	@Override
+	public ArrayList<Juego> getJuegosTitulo(String titulo) {
+		
+		
+		
+		return null;
 	}
 
 }
