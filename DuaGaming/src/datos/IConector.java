@@ -1,5 +1,7 @@
 package datos;
 
+import models.Juego;
+
 public interface IConector {
 
 	

@@ -1,4 +1,4 @@
-package datos;
+package models;
 
 public class Requisitos {
 

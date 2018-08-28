@@ -1,6 +1,7 @@
-package Servicios;
+package servicios;
 
 import java.util.ArrayList;
+import models.Juego;
 
 public interface IServicios {
 	

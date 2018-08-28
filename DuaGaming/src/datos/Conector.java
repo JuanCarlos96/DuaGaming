@@ -2,6 +2,9 @@ package datos;
 
 import java.sql.*;
 
+import models.Juego;
+import models.Requisitos;
+
 public class Conector implements IConector{
 
 	 private Connection conexion = null;
@@ -38,21 +41,23 @@ public class Conector implements IConector{
 		
 		try{
 		
-		String sql = "SELECT * FROM Juego WHERE id =" +id;
-		
-		stmnt = conexion.createStatement();
-		
-		ResultSet rs = stmnt.executeQuery(sql);
-		
-		
-		while (rs.next()){
-			juego = new Juego(rs.get)
-		}
+			String sql = "SELECT * FROM Juego WHERE id =" +id;
+			
+			stmnt = conexion.createStatement();
+			
+			ResultSet rs = stmnt.executeQuery(sql);
+			
+			
+			while (rs.next()){
+				juego = new Juego(rs.get)
+			}
+		}catch(SQLException e){
+			
 		}
 		
 	}
 	
-	private Requisito getRequisito(int id){
+	private Requisitos getRequisito(int id){
 		
 	}
 
