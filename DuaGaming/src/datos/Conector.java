@@ -23,7 +23,6 @@ public class Conector implements IConector{
 	public Conector() {
 		
 		try{
-			
 			/*Properties propiedades = new Properties();
 			
 			propiedades.load(new FileInputStream("config.properties"));
@@ -36,19 +35,8 @@ public class Conector implements IConector{
 			
             Class.forName("com.mysql.jdbc.Driver");
             
-            
-            
-            
-            
             this.conexion = (Connection) DriverManager.getConnection("jdbc:mysql://10.90.36.13/duagaming","Vitu", "Vitu");
-            // DatabaseMetaData dmd = this.conexion.getMetaData();
-            //ResultSet rs = dmd.getTables(null, null, "Departamento", null);
-           /* if (rs.next()==false) {// Si no existe crea las tablas
-                System.out.println("Base de datos vacía, creando tablas...");
-                this.crearTablas();
-            }*/
-            //rs.close();
-            //JOptionPane.showMessageDialog(null, "Base de datos conectada");
+            
             System.out.println("Base de datos conectada.");
         } catch (ClassNotFoundException | SQLException ex) {
             ex.printStackTrace();
