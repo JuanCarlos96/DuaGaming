@@ -1,5 +1,8 @@
 package datos;
 
+import java.io.FileInputStream;
+import java.io.FileNotFoundException;
+import java.io.IOException;
 import java.sql.*;
 
 import models.Juego;
@@ -8,6 +11,7 @@ import models.Categorias;
 import java.util.ArrayList;
 import java.util.Collections;
 import java.util.List;
+import java.util.Properties;
 
 public class Conector implements IConector{
 
@@ -15,14 +19,28 @@ public class Conector implements IConector{
 	    private String sql;
 	    private Statement stmnt;
 	    private PreparedStatement pstmnt;
-	    private final String USER = "root";
-	    private final String PASSWORD = "1111";
-	
+	    
 	public Conector() {
 		
 		try{
+			
+			/*Properties propiedades = new Properties();
+			
+			propiedades.load(new FileInputStream("config.properties"));
+			
+			String driver = propiedades.getProperty("driver");
+			String password = propiedades.getProperty("password");
+			String user = propiedades.getProperty("user");
+			String database = propiedades.getProperty("database");
+			*/
+			
             Class.forName("com.mysql.jdbc.Driver");
-            this.conexion = (Connection) DriverManager.getConnection("jdbc:mysql://10.90.36.13/duagaming", USER, PASSWORD);
+            
+            
+            
+            
+            
+            this.conexion = (Connection) DriverManager.getConnection("jdbc:mysql://10.90.36.13/duagaming","Vitu", "Vitu");
             // DatabaseMetaData dmd = this.conexion.getMetaData();
             //ResultSet rs = dmd.getTables(null, null, "Departamento", null);
            /* if (rs.next()==false) {// Si no existe crea las tablas
@@ -89,7 +107,7 @@ public class Conector implements IConector{
 		
 		try{
 		
-			String sql = "SELECT * FROM Juego WHERE idRequisito =" +idRequisito;
+			String sql = "SELECT * FROM requisito WHERE idRequisito =" +idRequisito;
 			
 			stmnt = conexion.createStatement();
 			
@@ -123,6 +141,64 @@ public class Conector implements IConector{
 		
 		
 		return null;
+	}
+	
+	public void cerrarConexion(){
+		
+		try {
+			if (conexion != null){
+				this.conexion.close();
+			}
+			
+		} catch (SQLException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+	}
+
+	@Override
+	public ArrayList<Juego> getJuegos() {
+		
+		ArrayList<Juego> juegos= new ArrayList();
+		
+		ArrayList<Categorias> categorias = null;
+		
+		try{
+		
+			String sql = "SELECT * FROM Juego";
+			
+			stmnt = conexion.createStatement();
+			
+			ResultSet rs = stmnt.executeQuery(sql);
+			
+			
+			while (rs.next()){
+				//Obtención de las categorías
+				String values = rs.getString("categoria");
+				List<String> valuesSet = new ArrayList();
+				Collections.addAll(valuesSet, values.split(";"));
+				
+				for (Categorias c:Categorias.values()) {
+					if (valuesSet.contains(c.name())) {
+						categorias.add(c);
+					}
+				}
+				//------------------------------------
+				
+				juegos.add(new Juego(rs.getInt("id"),
+						rs.getString("titulo"),
+						rs.getString("descripcion"),
+						getRequisito(rs.getInt("requisitos")),
+						rs.getBytes("caratula"),
+						rs.getFloat("precio"),
+						categorias));
+			}
+			rs.close();
+		}catch(SQLException e){
+			e.printStackTrace();
+		}
+		
+		return juegos;
 	}
 
 }
