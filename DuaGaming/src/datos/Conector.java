@@ -89,7 +89,7 @@ public class Conector implements IConector{
 						rs.getString("titulo"),
 						rs.getString("descripcion"),
 						getRequisito(rs.getInt("requisitos")),
-						rs.getBytes("caratula"),
+						rs.getString("caratula"),
 						rs.getFloat("precio"),
 						categorias);
 			}
@@ -174,6 +174,7 @@ public class Conector implements IConector{
 			
 			while (rs.next()){
 				//Obtención de las categorías
+				
 				String values = rs.getString("categoria");
 				List<String> valuesSet = new ArrayList();
 				Collections.addAll(valuesSet, values.split(";"));
@@ -189,7 +190,7 @@ public class Conector implements IConector{
 						rs.getString("titulo"),
 						rs.getString("descripcion"),
 						getRequisito(rs.getInt("requisitos")),
-						rs.getBytes("caratula"),
+						rs.getString("caratula"),
 						rs.getFloat("precio"),
 						categorias));
 			}
