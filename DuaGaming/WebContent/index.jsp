@@ -1,5 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html lang="en">
 <head>
@@ -247,25 +248,28 @@
 						<div class="product-grid"
 							data-isotope='{ "itemSelector": ".product-item", "layoutMode": "fitRows" }'>
 
-							<!-- Product 1 -->
-
+							<!-- Product 1######################################################################################################################################################## -->
+  			<!--  	<c:forEach var="juego" items="${lista}">
 							<div class="product-item men">
 								<div class="product discount product_filter">
 									<div class="product_image">
-										<img src="images/product_1.png" alt="">
+										<img src="${juego.caratulas}" alt=""/>
 									</div>
+									
+									
 									<div class="favorite favorite_left"></div>
 									<div
 										class="product_bubble product_bubble_right product_bubble_red d-flex flex-column align-items-center">
-										<span>-$20</span>
+										<span></span>
 									</div>
 									<div class="product_info">
 										<h6 class="product_name">
-											<a href="single.html">Fujifilm X100T 16 MP Digital Camera
-												(Silver)</a>
+											<a href="single.html"> ${juego.titulo}</a>
+									
 										</h6>
 										<div class="product_price">
-											$520.00<span>$590.00</span>
+												
+												${juego.precio}€
 										</div>
 									</div>
 								</div>
@@ -273,13 +277,13 @@
 									<a href="#">add to cart</a>
 								</div>
 							</div>
-
-							<!-- Product 2 -->
+		</c:forEach>  -->
+  							<!-- Product 2 -->
 
 							<div class="product-item women">
 								<div class="product product_filter">
 									<div class="product_image">
-										<img src="images/product_2.png" alt="">
+										<img src="${lista.get(0).caratula}" alt=""/>
 									</div>
 									<div class="favorite"></div>
 									<div
@@ -304,7 +308,7 @@
 							<div class="product-item women">
 								<div class="product product_filter">
 									<div class="product_image">
-										<img src="images/product_3.png" alt="">
+										<img src="${lista.get(0).caratula}" alt=""/>
 									</div>
 									<div class="favorite"></div>
 									<div class="product_info">
@@ -325,7 +329,7 @@
 							<div class="product-item accessories">
 								<div class="product product_filter">
 									<div class="product_image">
-										<img src="images/product_4.png" alt="">
+										<img src="${lista.get(0).caratula}" alt=""/>
 									</div>
 									<div
 										class="product_bubble product_bubble_right product_bubble_red d-flex flex-column align-items-center">
@@ -478,6 +482,7 @@
 									<a href="#">add to cart</a>
 								</div>
 							</div>
+
 						</div>
 					</div>
 				</div>

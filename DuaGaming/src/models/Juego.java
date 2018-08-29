@@ -8,12 +8,12 @@ public class Juego {
 	private String titulo;
 	private String descripcion;
 	private Requisitos requisitos;
-	private byte[] caratula;
+	private String caratula;
 	private float precio;
 	private ArrayList<Categorias> categorias;
 	
 	
-	public Juego(int id, String titulo, String descripcion, Requisitos requisitos, byte[] caratula, float precio, ArrayList<Categorias> categorias) {
+	public Juego(int id, String titulo, String descripcion, Requisitos requisitos, String caratula, float precio, ArrayList<Categorias> categorias) {
 		super();
 		this.id = id;
 		this.titulo = titulo;
@@ -65,12 +65,12 @@ public class Juego {
 	}
 
 
-	public byte[] getCaratula() {
+	public String getCaratula() {
 		return caratula;
 	}
 
 
-	public void setCaratula(byte[] caratula) {
+	public void setCaratula(String caratula) {
 		this.caratula = caratula;
 	}
 
