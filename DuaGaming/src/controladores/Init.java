@@ -56,6 +56,7 @@ public class Init extends HttpServlet {
 		request.setAttribute("lista", juegos);
 		RequestDispatcher view =request.getRequestDispatcher("index.jsp");
 		view.forward(request, response);
+		con.cerrarConexion();
 	}
 
 }
