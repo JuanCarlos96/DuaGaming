@@ -9,16 +9,12 @@ import models.Juego;
 import models.Requisitos;
 import models.Categorias;
 import java.util.ArrayList;
-import java.util.Collections;
-import java.util.List;
 import java.util.Properties;
 
 public class Conector implements IConector{
 
 	 private Connection conexion = null;
-	    private String sql;
 	    private Statement stmnt;
-	    private PreparedStatement pstmnt;
 	    
 	public Conector() {
 		
@@ -51,7 +47,7 @@ public class Conector implements IConector{
 	public Juego getJuego(int id){
 		
 		Juego juego = null;
-		ArrayList<Categorias> categorias = new ArrayList();
+		Categorias categoria = null;
 		
 		try{
 		    
@@ -61,19 +57,18 @@ public class Conector implements IConector{
 			//Creamos conexión
 			stmnt = conexion.createStatement();
 			
-			//Almacenamos el relutado de la consulta a la base en rs
+			//Almacenamos el resultado de la consulta a la base en rs
 			ResultSet rs = stmnt.executeQuery(sql);
 			
 			
 			while (rs.next()){
-				//Obtención de las categorías
-				String values = rs.getString("categoria");
-				List<String> valuesSet = new ArrayList();
-				Collections.addAll(valuesSet, values.split(","));
+				//Obtención de la categoría
+				String value = rs.getString("categoria");
 				
 				for (Categorias c:Categorias.values()) {
-					if (valuesSet.contains(c.name())) {
-						categorias.add(c);
+					if (value.equals(c.name())) {
+						categoria = c;
+						break;
 					}
 				}
 				//------------------------------------
@@ -84,13 +79,12 @@ public class Conector implements IConector{
 						getRequisito(rs.getInt("requisitos")),
 						rs.getString("caratula"),
 						rs.getFloat("precio"),
-						categorias);
+						categoria);
 			}
 			rs.close();
 		}catch(SQLException e){
 			e.printStackTrace();
 		}
-		
 		return juego;
 	}
 	
@@ -99,13 +93,11 @@ public class Conector implements IConector{
 		Requisitos requisito = null;
 		
 		try{
-		
 			String sql = "SELECT * FROM requisito WHERE idRequisito =" +idRequisito;
 			
 			stmnt = conexion.createStatement();
 			
 			ResultSet rs = stmnt.executeQuery(sql);
-			
 			
 			while (rs.next()){
 				requisito = new Requisitos(rs.getInt("idRequisito"),
@@ -115,23 +107,17 @@ public class Conector implements IConector{
 						rs.getString("so"),
 						rs.getString("almacenamiento"));
 			}
-			
 			rs.close();
-			
-			
-			
 		}catch(SQLException e ){
-			
 			e.printStackTrace();
 		}
-		
 		return requisito;
 	}
 
 	@Override
 	public ArrayList<Juego> getJuegosTitulo(String filtro) {
 		ArrayList<Juego> juegos = new ArrayList<Juego>();
-		ArrayList<Categorias> categorias = new ArrayList<Categorias>();
+		Categorias categoria = null;
 		
 		try {
 			String sql = "select * from juego where titulo like '%"+filtro+"%'";
@@ -139,14 +125,13 @@ public class Conector implements IConector{
 			ResultSet rs = stmnt.executeQuery(sql);
 			
 			while (rs.next()) {
-				//Obtención de las categorías
-				String values = rs.getString("categoria");
-				List<String> valuesSet = new ArrayList<String>();
-				Collections.addAll(valuesSet, values.split(","));
+				//Obtención de la categoría
+				String value = rs.getString("categoria");
 				
 				for (Categorias c:Categorias.values()) {
-					if (valuesSet.contains(c.name())) {
-						categorias.add(c);
+					if (value.equals(c.name())) {
+						categoria = c;
+						break;
 					}
 				}
 				//------------------------------------
@@ -157,38 +142,21 @@ public class Conector implements IConector{
 						getRequisito(rs.getInt("requisitos")),
 						rs.getString("caratula"),
 						rs.getFloat("precio"),
-						categorias));
+						categoria));
 			}
-		} catch (Exception e) {
-			// TODO: handle exception
-		}
-		
-		
-		return juegos;
-	}
-	
-	public void cerrarConexion(){
-		
-		try {
-			if (conexion != null){
-				this.conexion.close();
-			}
-			
 		} catch (SQLException e) {
-			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
+		return juegos;
 	}
 
 	@Override
 	public ArrayList<Juego> getJuegos() {
 		
 		ArrayList<Juego> juegos= new ArrayList();
-		
-		ArrayList<Categorias> categorias = new ArrayList();
+		Categorias categoria = null;
 		
 		try{
-		
 			String sql = "SELECT * FROM Juego";
 			
 			stmnt = conexion.createStatement();
@@ -197,15 +165,13 @@ public class Conector implements IConector{
 			
 			
 			while (rs.next()){
-				//Obtención de las categorías
-				
-				String values = rs.getString("categoria");
-				List<String> valuesSet = new ArrayList();
-				Collections.addAll(valuesSet, values.split(","));
+				//Obtención de la categoría
+				String value = rs.getString("categoria");
 				
 				for (Categorias c:Categorias.values()) {
-					if (valuesSet.contains(c.name())) {
-						categorias.add(c);
+					if (value.equals(c.name())) {
+						categoria = c;
+						break;
 					}
 				}
 				//------------------------------------
@@ -216,13 +182,12 @@ public class Conector implements IConector{
 						getRequisito(rs.getInt("requisitos")),
 						rs.getString("caratula"),
 						rs.getFloat("precio"),
-						categorias));
+						categoria));
 			}
 			rs.close();
 		}catch(SQLException e){
 			e.printStackTrace();
 		}
-		
 		return juegos;
 	}
 

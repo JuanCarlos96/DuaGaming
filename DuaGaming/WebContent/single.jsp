@@ -155,7 +155,7 @@ ${Un_Juego.titulo}
 						<ul>
 							<li><a href="index.html">Home</a></li>
 							<li><a href="categories.jsp"><i
-									class="fa fa-angle-right" aria-hidden="true"></i>${Un_Juego.categorias.get(0)}</a></li>
+									class="fa fa-angle-right" aria-hidden="true"></i>${Un_Juego.categorias}</a></li>
 							<li class="active"><a href="#"><i
 									class="fa fa-angle-right" aria-hidden="true"></i>${Un_Juego.titulo}</a></li>
 						</ul>

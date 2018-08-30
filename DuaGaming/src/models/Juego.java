@@ -1,7 +1,5 @@
 package models;
 
-import java.util.ArrayList;
-
 public class Juego {
 
 	private int id;
@@ -10,10 +8,10 @@ public class Juego {
 	private Requisitos requisitos;
 	private String caratula;
 	private float precio;
-	private ArrayList<Categorias> categorias;
+	private Categorias categorias;
 	
 	
-	public Juego(int id, String titulo, String descripcion, Requisitos requisitos, String caratula, float precio, ArrayList<Categorias> categorias) {
+	public Juego(int id, String titulo, String descripcion, Requisitos requisitos, String caratula, float precio, Categorias categorias) {
 		super();
 		this.id = id;
 		this.titulo = titulo;
@@ -85,12 +83,12 @@ public class Juego {
 	}
 
 
-	public ArrayList<Categorias> getCategorias() {
+	public Categorias getCategorias() {
 		return categorias;
 	}
 
 
-	public void setCategorias(ArrayList<Categorias> categorias) {
+	public void setCategorias(Categorias categorias) {
 		this.categorias = categorias;
 	}
 }
