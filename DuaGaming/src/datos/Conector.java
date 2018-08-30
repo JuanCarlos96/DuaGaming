@@ -69,7 +69,7 @@ public class Conector implements IConector{
 				//Obtención de las categorías
 				String values = rs.getString("categoria");
 				List<String> valuesSet = new ArrayList();
-				Collections.addAll(valuesSet, values.split(";"));
+				Collections.addAll(valuesSet, values.split(","));
 				
 				for (Categorias c:Categorias.values()) {
 					if (valuesSet.contains(c.name())) {
@@ -170,7 +170,7 @@ public class Conector implements IConector{
 				
 				String values = rs.getString("categoria");
 				List<String> valuesSet = new ArrayList();
-				Collections.addAll(valuesSet, values.split(";"));
+				Collections.addAll(valuesSet, values.split(","));
 				
 				for (Categorias c:Categorias.values()) {
 					if (valuesSet.contains(c.name())) {
