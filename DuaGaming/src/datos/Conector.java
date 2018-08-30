@@ -33,8 +33,10 @@ public class Conector implements IConector{
 			String database = propiedades.getProperty("database");
 			*/
 			
+			
             Class.forName("com.mysql.jdbc.Driver");
             
+          //Creamos conexion a la base de datos que tiene las propiedades especificadas
             this.conexion = (Connection) DriverManager.getConnection("jdbc:mysql://10.90.36.13/duagaming","Vitu", "Vitu");
             
             System.out.println("Base de datos conectada.");
@@ -52,11 +54,14 @@ public class Conector implements IConector{
 		ArrayList<Categorias> categorias = null;
 		
 		try{
-		
+		    
+			//Creamos consulta sql
 			String sql = "SELECT * FROM Juego WHERE id =" +id;
 			
+			//Creamos conexión
 			stmnt = conexion.createStatement();
 			
+			//Almacenamos el relutado de la consulta a la base en rs
 			ResultSet rs = stmnt.executeQuery(sql);
 			
 			
