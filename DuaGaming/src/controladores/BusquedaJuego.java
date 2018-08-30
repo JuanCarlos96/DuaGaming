@@ -50,9 +50,9 @@ public class BusquedaJuego extends HttpServlet {
 
 	protected void processRequest(HttpServletRequest request, HttpServletResponse response)
 			throws ServletException, IOException {
-		ArrayList<Juego> juegos = con.getJuegosTitulo(null);
+		ArrayList<Juego> juegos = con.getJuegosTitulo(request.getParameter("busqueda"));
 		request.setAttribute("lista", juegos);
-		RequestDispatcher view =request.getRequestDispatcher("categories.jsp");
+		RequestDispatcher view =request.getRequestDispatcher("search.jsp");
 		view.forward(request, response);
 		con.cerrarConexion();
 	

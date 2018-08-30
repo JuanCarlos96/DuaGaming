@@ -129,17 +129,42 @@ public class Conector implements IConector{
 	}
 
 	@Override
-	public ArrayList<Juego> getJuegosTitulo(String titulo) {
-		List<Juego> juegos = new ArrayList<Juego>();
+	public ArrayList<Juego> getJuegosTitulo(String filtro) {
+		ArrayList<Juego> juegos = new ArrayList<Juego>();
+		ArrayList<Categorias> categorias = new ArrayList<Categorias>();
 		
 		try {
-			String sql = "select * from juego where titulo like '%a%'";
+			String sql = "select * from juego where titulo like '%"+filtro+"%'";
+			stmnt = conexion.createStatement();
+			ResultSet rs = stmnt.executeQuery(sql);
+			
+			while (rs.next()) {
+				//Obtención de las categorías
+				String values = rs.getString("categoria");
+				List<String> valuesSet = new ArrayList<String>();
+				Collections.addAll(valuesSet, values.split(","));
+				
+				for (Categorias c:Categorias.values()) {
+					if (valuesSet.contains(c.name())) {
+						categorias.add(c);
+					}
+				}
+				//------------------------------------
+				
+				juegos.add(new Juego(rs.getInt("id"),
+						rs.getString("titulo"),
+						rs.getString("descripcion"),
+						getRequisito(rs.getInt("requisitos")),
+						rs.getString("caratula"),
+						rs.getFloat("precio"),
+						categorias));
+			}
 		} catch (Exception e) {
 			// TODO: handle exception
 		}
 		
 		
-		return null;
+		return juegos;
 	}
 	
 	public void cerrarConexion(){

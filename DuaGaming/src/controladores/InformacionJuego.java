@@ -48,10 +48,9 @@ public class InformacionJuego extends HttpServlet {
 	
 	protected void processRequest(HttpServletRequest request, HttpServletResponse response)
 			throws ServletException, IOException {
+		int idJuego = Integer.parseInt(request.getParameter("idJuego"));
 		
-		//Sustituir el 1 por el valor que se me proporcionara por parte 
-		//de la accion que realice el usuario
-		Juego unJuego = con.getJuego(1);
+		Juego unJuego = con.getJuego(idJuego);
 		request.setAttribute("Un_Juego", unJuego);
 		RequestDispatcher view =request.getRequestDispatcher("single.jsp");
 		view.forward(request, response);
