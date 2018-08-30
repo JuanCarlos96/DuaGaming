@@ -51,7 +51,7 @@ public class Conector implements IConector{
 	public Juego getJuego(int id){
 		
 		Juego juego = null;
-		ArrayList<Categorias> categorias = null;
+		ArrayList<Categorias> categorias = new ArrayList();
 		
 		try{
 		    
@@ -154,7 +154,7 @@ public class Conector implements IConector{
 		
 		ArrayList<Juego> juegos= new ArrayList();
 		
-		ArrayList<Categorias> categorias = null;
+		ArrayList<Categorias> categorias = new ArrayList();
 		
 		try{
 		
