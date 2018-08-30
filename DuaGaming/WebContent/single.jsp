@@ -169,8 +169,8 @@ ${Un_Juego.titulo}
 							<div class="col-lg-3 thumbnails_col order-lg-1 order-2">
 								<div class="single_product_thumbnails">
 									<ul>
-										<li><img src="caratulas/dragonage.jpg" alt=""
-											data-image="caratulas/dragonage.jpg"></li>
+										<li><img src="${Un_Juego.caratula}" alt=""
+											data-image="${Un_Juego.caratula}"></li>
 
 									</ul>
 								</div>
@@ -178,7 +178,7 @@ ${Un_Juego.titulo}
 							<div class="col-lg-9 image_col order-lg-2 order-1">
 								<div class="single_product_image">
 									<div class="single_product_image_background"
-										style="background-image: url(caratulas/dragonage.jpg)"></div>
+										style="background-image: url(${Un_Juego.caratula})"></div>
 								</div>
 							</div>
 						</div>
@@ -275,7 +275,19 @@ ${Un_Juego.titulo}
 									<p>
 									<ul>
 									<li>
-									     ${Un_Juego.requisitos}
+									     <b>Procesador:</b> ${Un_Juego.requisitos.procesador}
+									</li>
+									<li>
+									     <b>Tarjeta gráfica:</b> ${Un_Juego.requisitos.grafica}
+									</li>
+									<li>
+									     <b>RAM:</b> ${Un_Juego.requisitos.ram}
+									</li>
+									<li>
+									     <b>Sistema operativo:</b> ${Un_Juego.requisitos.so}
+									</li>
+									<li>
+									     <b>Almacenamiento:</b> ${Un_Juego.requisitos.almacenamiento}
 									</li>
 									</ul>
 									</p>
