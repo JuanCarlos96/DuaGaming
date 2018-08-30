@@ -54,7 +54,6 @@ public class BusquedaJuego extends HttpServlet {
 		request.setAttribute("lista", juegos);
 		RequestDispatcher view =request.getRequestDispatcher("search.jsp");
 		view.forward(request, response);
-		con.cerrarConexion();
 	
 }
 	

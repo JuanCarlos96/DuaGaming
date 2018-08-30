@@ -54,7 +54,6 @@ public class InformacionJuego extends HttpServlet {
 		request.setAttribute("Un_Juego", unJuego);
 		RequestDispatcher view =request.getRequestDispatcher("single.jsp");
 		view.forward(request, response);
-		con.cerrarConexion();
 	}
 
 }
