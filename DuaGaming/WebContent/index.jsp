@@ -229,10 +229,16 @@
 								
 								</div>
 							</div>
-							<div class="red_button add_to_cart_button"><a href="#">add to cart</a></div>
+							<form action="/DuaGaming/InformacionJuego" method="post">
+							<center><div><input type="submit" class="btn btn-dark" value="Ir al juego"></div></center>
+							<input type="hidden" id = "idJuego" name = "idJuego" value = "${juego.id}">
+							
+							</form>
+							
+							
 						</div>
 						</c:forEach>	
-</div>
+
 				</div>
 			</div>
 		</div>
