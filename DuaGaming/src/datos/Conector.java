@@ -130,7 +130,13 @@ public class Conector implements IConector{
 
 	@Override
 	public ArrayList<Juego> getJuegosTitulo(String titulo) {
+		List<Juego> juegos = new ArrayList<Juego>();
 		
+		try {
+			String sql = "select * from juego where titulo like '%a%'";
+		} catch (Exception e) {
+			// TODO: handle exception
+		}
 		
 		
 		return null;
