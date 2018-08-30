@@ -90,7 +90,8 @@
 						<nav class="navbar">
 						<ul class="navbar_menu">
 							<li><a href="#">home</a></li>
-							<li><a href="#">shop</a></li>
+							
+							<li><a href="">shop</a></li>
 							<li><a href="#">promocion</a></li>
 							<li><a href="#">+ vendido</a></li>
 							<li><a href="contact.jsp">contacto</a></li>
@@ -170,7 +171,11 @@
 							<h6>Los mejores juegos te esperan...</h6>
 							<h1></h1>
 							<div class="red_button shop_now_button">
+							<form action="Init">
 								<a href="#">Comprar ahora</a>
+								</form>	
+							
+								
 							</div>
 						</div>
 					</div>
@@ -178,107 +183,61 @@
 			</div>
 		</div>
 
-		<!-- Banner -->
 
-		<div class="banner">
-			<div class="container">
-				<div class="row">
-					<div class="col-md-4">
-						<div class="banner_item align-items-center"
-							style="background-image: url(images/slider_3.png)">
-							<div class="banner_category">
-								<a href="categories.jsp"> Todos</a>
-							</div>
-						</div>
-					</div>
-					<div class="col-md-4">
-						<div class="banner_item align-items-center"
-							style="background-image: url(images/slider4.png)">
-							<div class="banner_category">
-								<a href="categories.jsp">Lo mas vendido</a>
-							</div>
-						</div>
-					</div>
-					<div class="col-md-4">
-						<div class="banner_item align-items-center"
-							style="background-image: url(images/slider_23.png)">
-							<div class="banner_category">
-								<a href="categories.jsp">Promociones</a>
-							</div>
-						</div>
+
+	<div class="new_arrivals">
+		<div class="container">
+			<div class="row">
+				<div class="col text-center">
+					<div class="section_title new_arrivals_title">
+						<h2>Novedades</h2>
 					</div>
 				</div>
 			</div>
-		</div>
-
-		<!-- New Arrivals -->
-
-		<div class="new_arrivals">
-			<div class="container">
-				<div class="row">
-					<div class="col text-center">
-						<div class="section_title new_arrivals_title">
-							<h2>Novedades</h2>
-						</div>
+			<div class="row align-items-center">
+				<div class="col text-center">
+					<div class="new_arrivals_sorting">
+						<ul class="arrivals_grid_sorting clearfix button-group filters-button-group">
+							<li class="grid_sorting_button button d-flex flex-column justify-content-center align-items-center active is-checked" data-filter="*">Todos</li>
+						</ul>
 					</div>
 				</div>
-				<div class="row align-items-center">
-					<div class="col text-center">
-						<div class="new_arrivals_sorting">
-							<ul
-								class="arrivals_grid_sorting clearfix button-group filters-button-group">
-								<li
-									class="grid_sorting_button button d-flex flex-column justify-content-center align-items-center active is-checked"
-									data-filter="*">all</li>
-								<li
-									class="grid_sorting_button button d-flex flex-column justify-content-center align-items-center"
-									data-filter=".women">Aventura</li>
-								<li
-									class="grid_sorting_button button d-flex flex-column justify-content-center align-items-center"
-									data-filter=".accessories">multijugador</li>
-								<li
-									class="grid_sorting_button button d-flex flex-column justify-content-center align-items-center"
-									data-filter=".men">Rpg</li>
-							</ul>
-						</div>
-					</div>
-				</div>
-				<div class="row">
-					<div class="col">
-						<div class="product-grid"
-							data-isotope='{ "itemSelector": ".product-item", "layoutMode": "fitRows" }'>
-
-							<!-- Product 1######################################################################################################################################################## -->
-  							<!-- Product 1 -->
-						<c:forEach items="${lista}" var="juego">
-							<div class="product-item men">
-								<div class="product discount product_filter">
-									<div class="product_image">
-										<img src="${juego.caratula}" alt="">
-									</div>
-									<div class="favorite favorite_left"></div>
-									<div class="product_bubble product_bubble_right product_bubble_red d-flex flex-column align-items-center"><span>-$20</span></div>
-									<div class="product_info">
-										<h6 class="product_name"><a href="single.html">
-									${juego.titulo}
-										</a></h6>
-										<div class="product_price">
-										
-									${juego.precio}
-									
-										<span>$590.00</span></div>
-									</div>
+			</div>
+			<div class="row">
+				<div class="col">
+					<div class="product-grid" data-isotope='{ "itemSelector": ".product-item", "layoutMode": "fitRows" }'>
+					
+					
+						<!-- Product 1 -->
+	 	<c:forEach items="${lista}" var="juego">
+						<div class="product-item men">
+						
+							<div class="product discount product_filter">
+							
+								<div class="product_image">
+									<img src="${juego.caratula}" alt="">
 								</div>
-								<div class="red_button add_to_cart_button"><a href="#">add to cart</a></div>
+								<div class="favorite favorite_left"></div>
+								
+								<div class="product_info">
+									<h6 class="product_name"><a href="single.html">
+									${juego.titulo}
+									</a></h6>
+									<div class="product_price">
+									
+									${juego.precio}</div>
+								
+								</div>
 							</div>
-							</c:forEach>
-					</div>
+							<div class="red_button add_to_cart_button"><a href="#">add to cart</a></div>
+						</div>
+						</c:forEach>	
+</div>
 				</div>
 			</div>
 		</div>
 	</div>
-
-
+	
 		<!-- Deal of the week -->
 
 		<div class="deal_ofthe_week">
