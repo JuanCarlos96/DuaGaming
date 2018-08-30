@@ -3,7 +3,10 @@
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html lang="en">
 <head>
-<title>Producto elegido</title>
+<link rel="shortcut icon" href="https://banner2.kisspng.com/20180206/ppw/kisspng-the-legend-of-zelda-the-wind-waker-hd-the-legend-zelda-link-png-transparent-5a798682adef56.9797845015179137307124.jpg" />
+<title>
+${Un_Juego.titulo}
+</title>
 <meta charset="utf-8">
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
 <meta name="description" content="Colo Shop Template">
@@ -68,7 +71,7 @@
 						<nav class="navbar">
 						<ul class="navbar_menu">
 							<li><a href="index.html">home</a></li>
-							<li><a href="#">shop</a></li>
+							<li><a href="#">tienda</a></li>
 							<li><a href="#">promocion</a></li>
 							<li><a href="#">+vendido</a></li>
 							<li><a href="contact.html">contacto</a></li>
@@ -112,7 +115,7 @@
 							<li><a href="#">eur</a></li>
 							<li><a href="#">gbp</a></li>
 						</ul></li>
-					<li class="menu_item has-children"><a href="#"> English <i
+					<li class="menu_item has-children"><a href="#"> Español <i
 							class="fa fa-angle-down"></i>
 					</a>
 						<ul class="menu_selection">
@@ -121,21 +124,21 @@
 							<li><a href="#">German</a></li>
 							<li><a href="#">Spanish</a></li>
 						</ul></li>
-					<li class="menu_item has-children"><a href="#"> My Account
+					<li class="menu_item has-children"><a href="#"> Mi Cuenta
 							<i class="fa fa-angle-down"></i>
 					</a>
 						<ul class="menu_selection">
 							<li><a href="#"><i class="fa fa-sign-in"
-									aria-hidden="true"></i>Iniciar sesion</a></li>
+									aria-hidden="true"></i>Iniciar sesión</a></li>
 							<li><a href="#"><i class="fa fa-user-plus"
 									aria-hidden="true"></i>Registrar</a></li>
 						</ul></li>
 					<li class="menu_item"><a href="#">home</a></li>
-					<li class="menu_item"><a href="#">shop</a></li>
-					<li class="menu_item"><a href="#">promotion</a></li>
-					<li class="menu_item"><a href="#">pages</a></li>
+					<li class="menu_item"><a href="#">tienda</a></li>
+					<li class="menu_item"><a href="#">promociones</a></li>
+					<li class="menu_item"><a href="#">paginas</a></li>
 					<li class="menu_item"><a href="#">blog</a></li>
-					<li class="menu_item"><a href="#">contact</a></li>
+					<li class="menu_item"><a href="#">contacto</a></li>
 				</ul>
 			</div>
 		</div>
@@ -149,10 +152,10 @@
 					<div class="breadcrumbs d-flex flex-row align-items-center">
 						<ul>
 							<li><a href="index.html">Home</a></li>
-							<li><a href="categories.html"><i
-									class="fa fa-angle-right" aria-hidden="true"></i>Aventuras</a></li>
+							<li><a href="categories.jsp"><i
+									class="fa fa-angle-right" aria-hidden="true"></i>${Un_Juego.categorias.get(0)}</a></li>
 							<li class="active"><a href="#"><i
-									class="fa fa-angle-right" aria-hidden="true"></i>Producto</a></li>
+									class="fa fa-angle-right" aria-hidden="true"></i>${Un_Juego.titulo}</a></li>
 						</ul>
 					</div>
 
@@ -166,8 +169,8 @@
 							<div class="col-lg-3 thumbnails_col order-lg-1 order-2">
 								<div class="single_product_thumbnails">
 									<ul>
-										<li><img src="images/monster.jpg" alt=""
-											data-image="images/monster.jpg"></li>
+										<li><img src="caratulas/dragonage.jpg" alt=""
+											data-image="caratulas/dragonage.jpg"></li>
 
 									</ul>
 								</div>
@@ -175,7 +178,7 @@
 							<div class="col-lg-9 image_col order-lg-2 order-1">
 								<div class="single_product_image">
 									<div class="single_product_image_background"
-										style="background-image: url(images/monster.jpg)"></div>
+										style="background-image: url(caratulas/dragonage.jpg)"></div>
 								</div>
 							</div>
 						</div>
@@ -184,25 +187,12 @@
 				<div class="col-lg-5">
 					<div class="product_details">
 						<div class="product_details_title">
-							<h2>Monster Hunter World</h2>
-							<p>Monster Hunter World supone la llegada de la saga Monster
-								Hunter a plataformas de juego como PS4, Xbox One y PC con una
-								estupenda caza de monstruos made-in Capcom que nunca había
-								lucido tan bien hasta este juego que incluye todos los elementos
-								que hicieron grande a la franquicia, solo que añadiendo
-								importantes novedades como nuevas especies para cazar (por
-								ejemplo Anjanath), nuevos objetos para recolectar, la
-								posibilidad de que los monstruos puedan luchar entre sí
-								aleatoriamente, un mapa totalmente conectado entre sí que
-								mantiene la identidad entre zonas o la posibilidad de formar
-								equipo con hasta tres cazadores con un nuevo sistema
-								multijugador online drop-in que permite juego cooperativo
-								interregional entre Japón y Occidente, combinando la base de
-								jugadores por primera vez en su historia.</p>
+							<h2>${Un_Juego.titulo}</h2>
+							<p>${Un_Juego.descripcion}</p>
 						</div>
 
-						<div class="original_price">60.00€</div>
-						<div class="product_price">34.99€</div>
+						<div class="original_price"></div>
+						<div class="product_price">${Un_Juego.precio}</div>
 						<ul class="star_rating">
 							<li><i class="fa fa-star" aria-hidden="true"></i></li>
 							<li><i class="fa fa-star" aria-hidden="true"></i></li>
@@ -212,14 +202,14 @@
 						</ul>
 						<div
 							class="quantity d-flex flex-column flex-sm-row align-items-sm-center">
-							<span>Quantity:</span>
+							<span>Cantidad:</span>
 							<div class="quantity_selector">
 								<span class="minus"><i class="fa fa-minus"
 									aria-hidden="true"></i></span> <span id="quantity_value">1</span> <span
 									class="plus"><i class="fa fa-plus" aria-hidden="true"></i></span>
 							</div>
 							<div class="red_button add_to_cart_button">
-								<a href="#">añadir al carrito</a>
+								<a href="#">Añadir al carrito</a>
 							</div>
 							<div
 								class="product_favorite d-flex flex-column align-items-center justify-content-center"></div>
@@ -259,10 +249,10 @@
 										<h4>Video</h4>
 									</div>
 									<div class="tab_text_block">
-										<h2>Monster Hunter World</h2>
+										<h2>${Un_Juego.titulo}</h2>
 										<p>
 											<iframe width="560" height="315"
-												src="https://www.youtube.com/embed/Z0jRrHaMPCU"
+												src=""
 												frameborder="0" allow="autoplay; encrypted-media"
 												allowfullscreen></iframe>
 										</p>
@@ -280,32 +270,14 @@
 							<div class="row">
 								<div class="col additional_info_col">
 									<div class="tab_title additional_info_title">
-										<h4>Requisitos mínimos</h4>
+										<h4>Requisitos</h4>
 									</div>
 									<p>
-									<li>SO: Windows 7, 8, 8.1, 10 (64-BIT necesario)
-									<li>Procesador: Intel Core i5-4460, 3.20GHz o AMD FX-6300
-										o más</li>
-									<li>Memoria: 8 GB RAM</li>
-									<li>Tarjeta gráfica: NVIDIA GeForce GTX 760 o AMD Radeon
-										R7 260x (VRAM 2GB o más)</li>
-									<li>DirectX: Versión 11</li>
-									<li>Espacio: 20 GB</li>
-									<li>Tarjeta de sonido: Compatible con DirectSound (DirectX
-										9.0c o superior)</li>
-									<li>Notas adicionales: Compatible con ratón, teclado y
-										mandos (DirectInput y XInput).</li>
-									<li>30FPS a 1080p con configuración BAJA.</li>
-									</p>
-									<h4>Requisitos recomendados</h4>
-									<p>
-									<li>SO: Windows 7, 8, 8.1, 10 (64-BIT necesario)</li>
-									<li>Procesador: Intel Core i3 8350 4GHz o Intel Core i7
-										3770 3.4GHz o AMD Ryzen 5 1500X</li>
-									<li>Memoria: 8 GB RAM</li>
-									<li>Tarjeta gráfica: NVIDIA GeForce GTX 1060 (VRAM 3GB) o
-										AMD Radeon RX 570X (VRAM 4GB)</li>
-									<li>DirectX: Versión 11</li>
+									<ul>
+									<li>
+									     ${Un_Juego.requisitos}
+									</li>
+									</ul>
 									</p>
 								</div>
 							</div>

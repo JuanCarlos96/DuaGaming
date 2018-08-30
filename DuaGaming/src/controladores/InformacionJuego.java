@@ -1,11 +1,17 @@
 package controladores;
 
 import java.io.IOException;
+import java.util.ArrayList;
+
+import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+
+import datos.Conector;
+import models.Juego;
 
 /**
  * Servlet implementation class InformacionJuego
@@ -14,6 +20,8 @@ import javax.servlet.http.HttpServletResponse;
 public class InformacionJuego extends HttpServlet {
 	private static final long serialVersionUID = 1L;
        
+	private Conector con = new Conector();
+	
     /**
      * @see HttpServlet#HttpServlet()
      */
@@ -27,7 +35,7 @@ public class InformacionJuego extends HttpServlet {
 	 */
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		// TODO Auto-generated method stub
-		response.getWriter().append("Served at: ").append(request.getContextPath());
+		processRequest(request, response);
 	}
 
 	/**
@@ -35,7 +43,19 @@ public class InformacionJuego extends HttpServlet {
 	 */
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		// TODO Auto-generated method stub
-		doGet(request, response);
+		processRequest(request, response);
+	}
+	
+	protected void processRequest(HttpServletRequest request, HttpServletResponse response)
+			throws ServletException, IOException {
+		
+		//Sustituir el 1 por el valor que se me proporcionara por parte 
+		//de la accion que realice el usuario
+		Juego unJuego = con.getJuego(1);
+		request.setAttribute("Un_Juego", unJuego);
+		RequestDispatcher view =request.getRequestDispatcher("single.jsp");
+		view.forward(request, response);
+		con.cerrarConexion();
 	}
 
 }
