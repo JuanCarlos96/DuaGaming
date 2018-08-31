@@ -3,7 +3,7 @@
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html lang="en">
 <head>
-<title>Nuevo juego</title>
+<title>Modificar juego</title>
 <meta charset="utf-8">
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
 <meta name="description" content="Colo Shop Template">
@@ -150,7 +150,7 @@
 						<ul>
 							<li><a href="index.html">Home</a></li>
 							<li class="active"><a href="#"><i
-									class="fa fa-angle-right" aria-hidden="true"></i>Nuevo juego</a></li>
+									class="fa fa-angle-right" aria-hidden="true"></i>Modificar juego</a></li>
 						</ul>
 					</div>
 
@@ -163,20 +163,20 @@
 
 				<div class="col-lg-6 get_in_touch_col">
 					<div class="get_in_touch_contents">
-						<h1>Nuevo juego</h1>
-						<p>Rellene los campos para crear un nuevo juego</p>
+						<h1>Modificar juego</h1>
+						<p>Rellene los campos para modificar un juego</p>
 						<form action="post">
 							<div>
 								<input id="titulo" class="form_input input_name input_ph"
-									type="text" name="titulo" placeholder="Título"
+									type="text" name="titulo" placeholder="Título" value="${juego.titulo}"
 									required="required" data-error="Título obligatorio">
 									
 								<textarea id="descripcion" class="input_ph input_message"
-									name="message" placeholder="Descripción" rows="3" required
+									name="message" placeholder="Descripción" value="${juego.descripcion}" rows="3" required
 									data-error="Por favor escriba una descripción"></textarea>
 									
 								<input id="precio" class="form_input input_name input_ph"
-									type="text" name="precio" placeholder="Precio"
+									type="text" name="precio" placeholder="Precio" value="${juego.precio}"
 									required="required" data-error="Precio obligatorio">
 									
 								<p>Categoría</p>	
@@ -195,24 +195,26 @@
 								<p><b>Requisitos:</b></p>
 								
 								<input id="procesador" class="form_input input_name input_ph"
-									type="text" name="procesador" placeholder="Procesador"
+									type="text" name="procesador" placeholder="Procesador" value="${juego.requisitos.procesador}"
 									required="required" data-error="Procesador obligatorio">
 								
 								<input id="grafica" class="form_input input_name input_ph"
-									type="text" name="grafica" placeholder="Gráfica"
+									type="text" name="grafica" placeholder="Gráfica" value="${juego.requisitos.grafica}"
 									required="required" data-error="Gráfica obligatoria">
 									
 								<input id="ram" class="form_input input_name input_ph"
-									type="text" name="ram" placeholder="RAM"
+									type="text" name="ram" placeholder="RAM" value="${juego.requisitos.ram}"
 									required="required" data-error="RAM obligatoria">
 								
 								<input id="so" class="form_input input_name input_ph"
-									type="text" name="so" placeholder="Sistema Operativo"
+									type="text" name="so" placeholder="Sistema Operativo" value="${juego.requisitos.so}"
 									required="required" data-error="Sistema Operativo obligatorio">
 								
 								<input id="almacenamiento" class="form_input input_name input_ph"
-									type="text" name="almacenamiento" placeholder="Almacenamiento"
+									type="text" name="almacenamiento" placeholder="Almacenamiento" value="${juego.requisitos.almacenamiento}"
 									required="required" data-error="Almacenamiento obligatorio">
+									
+								<input type="hidden" id="idJuego" name="idJuego" value="${juego.id}">
 							</div>
 							<div>
 								<input id="review_submit" type="submit"
