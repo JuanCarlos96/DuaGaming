@@ -25,5 +25,20 @@ public class Servicios implements IServicios {
 		return iCon.getJuegos();
 	}
 
+	@Override
+	public void addJuego(Juego juego) {
+		//iCon.addJuego(juego);
+	}
+
+	@Override
+	public void delJuego(int id) {
+		//iCon.delJuego(id);
+	}
+
+	@Override
+	public void modJuego(Juego juego) {
+		//iCon.modJuego(juego);
+	}
+
 	
 }

@@ -9,6 +9,7 @@ import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.HttpSession;
 
 import models.Juego;
 import servicios.IServicios;
@@ -54,7 +55,10 @@ public class Init extends HttpServlet {
 	protected void processRequest(HttpServletRequest request, HttpServletResponse response)
 			throws ServletException, IOException {
 		ArrayList<Juego> juegos = s.getJuegos();
-		request.setAttribute("lista", juegos);
+		
+		HttpSession sesion = request.getSession();
+		sesion.setAttribute("lista", juegos);
+		
 		RequestDispatcher view =request.getRequestDispatcher("index.jsp");
 		view.forward(request, response);
 	}
