@@ -203,13 +203,13 @@ public class Conector implements IConector{
 			
 		String 	sqlReq = "INSERT INTO Requisito (idRequisito, procesador,grafica,ram,so,almacenamiento)"
 				+"VALUES("
-				+juego.getId()+","
-				+juego.getRequisitos().getProcesador()+","
-				+juego.getRequisitos().getGrafica()+","
-				+juego.getRequisitos().getRam()+","
-				+juego.getRequisitos().getSo()+","
+				+juego.getId()+",'"
+				+juego.getRequisitos().getProcesador()+"','"
+				+juego.getRequisitos().getGrafica()+"','"
+				+juego.getRequisitos().getRam()+"','"
+				+juego.getRequisitos().getSo()+"','"
 				+juego.getRequisitos().getAlmacenamiento()
-				+")";
+				+"')";
 		
 		stmnt = conexion.prepareStatement(sqlReq);
 		
@@ -217,15 +217,15 @@ public class Conector implements IConector{
 		
 		
 			
-		String sqlJuego ="INSERT INTO Juego (id,titulodescripcion,requisitos,caratula,precio,categoria)"
+		String sqlJuego ="INSERT INTO Juego (id,titulo,descripcion,requisitos,caratula,precio,categoria)"
 				+ "VALUES("
-				+juego.getId()+","
-				+juego.getTitulo()+","
-				+juego.getDescripcion()+","
-				+juego.getRequisitos().getId()+",caratula/defecto.jpg,"
-				+juego.getPrecio()+","
+				+juego.getId()+",'"
+				+juego.getTitulo()+"','"
+				+juego.getDescripcion()+"',"
+				+juego.getRequisitos().getId()+",'caratula/defecto.jpg',"
+				+juego.getPrecio()+",'"
 				+juego.getCategorias().toString()
-				+")";
+				+"')";
 		
 		stmnt = conexion.prepareStatement(sqlJuego);
 		
@@ -255,43 +255,27 @@ public class Conector implements IConector{
 
 	@Override
 	public void modjuego(Juego juego) {
-		// TODO Auto-generated method stub
-		
 		try{
-		String sqlReq = "UPDATE requisito SET"
-				+"(procesador,grafica,ram,so,almacenamiento)"
-				+"VALUES("
-				+juego.getRequisitos().getProcesador()+","
-				+juego.getRequisitos().getGrafica()+","
-				+juego.getRequisitos().getRam()+","
-				+juego.getRequisitos().getSo()+","
-				+juego.getRequisitos().getAlmacenamiento()
-				+")WHERE idRequisito="+juego.getRequisitos().getId();
-		
-		stmnt = conexion.prepareStatement(sqlReq);
-		
-		stmnt.execute(sqlReq);
-		
-		
-		String sqlJuego= "UPDATE juego SET" 
-				+"(titulo,descripcion,requisitos,precio,categoria)"
-				+ "VALUES("
-				+juego.getTitulo()+","
-				+juego.getDescripcion()+","
-				+juego.getRequisitos().getId()+","
-				+juego.getPrecio()+","
-				+juego.getCategorias().toString()
-				+")WHERE id="+juego.getId();
-		
-		stmnt = conexion.prepareStatement(sqlJuego);
-		
-		stmnt.execute(sqlJuego);
-		
-		}catch(SQLException e){
+			String sql = "update requisito set procesador=?, grafica=?, ram=?, so=?, almacenamiento=? where idRequisito=?";
+			PreparedStatement ps = conexion.prepareStatement(sql);
+			ps.setString(1, juego.getRequisitos().getProcesador());
+			ps.setString(2, juego.getRequisitos().getGrafica());
+			ps.setString(3, juego.getRequisitos().getRam());
+			ps.setString(4, juego.getRequisitos().getSo());
+			ps.setString(5, juego.getRequisitos().getAlmacenamiento());
+			ps.setInt(6, juego.getId());
+			ps.executeUpdate();
 			
+			String sql2 = "update juego set titulo=?, descripcion=?, requisitos=?, precio=?, categoria=? where id=?";
+			PreparedStatement ps2 = conexion.prepareStatement(sql2);
+			ps2.setString(1, juego.getTitulo());
+			ps2.setString(2, juego.getDescripcion());
+			ps2.setInt(3, juego.getId());
+			ps2.setFloat(4, juego.getPrecio());
+			ps2.setString(5, juego.getCategorias().toString());
+			ps2.executeUpdate();
+		}catch(SQLException e){
 			e.printStackTrace();
-		
-		
 		}
 	}
 

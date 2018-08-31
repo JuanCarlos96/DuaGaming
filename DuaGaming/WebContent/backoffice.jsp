@@ -161,7 +161,10 @@
 			<div class="row">
 				<div class="col text-center">
 					<div class="section_title new_arrivals_title">
-						<h3><font color="grey">Todos los juegos</font></h3>
+					<form action="addJuego.jsp" method="post">
+					<center><div><input type="submit" class="btn btn-dark" value="Añadir nuevo juego"></center>
+					</form>
+						
 					</div>
 				</div>
 			</div>
@@ -198,8 +201,9 @@
 								
 								</div>
 							</div>
-							<form action="/DuaGaming/InformacionJuego" method="post">
-							<center><div><input type="submit" class="btn btn-dark" value="Ir al juego"></div></center>
+							<form action="/DuaGaming/DelJuego" method="post">
+							<center><div><input type="submit" class="btn btn-dark" value="Modificar">
+						<input type="submit" class="btn btn-dark" value="Borrar"></div></center>
 							<input type="hidden" id = "idJuego" name = "idJuego" value = "${juego.id}">
 							
 							</form>

@@ -172,7 +172,7 @@
 									required="required" data-error="Título obligatorio">
 									
 								<textarea id="descripcion" class="input_ph input_message"
-									name="message" placeholder="Descripción" value="${juego.descripcion}" rows="3" required
+									name="descripcion" placeholder="Descripción" value="${juego.descripcion}" rows="3" required
 									data-error="Por favor escriba una descripción"></textarea>
 									
 								<input id="precio" class="form_input input_name input_ph"

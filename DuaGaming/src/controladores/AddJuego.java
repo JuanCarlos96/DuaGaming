@@ -11,7 +11,9 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
+import models.Categorias;
 import models.Juego;
+import models.Requisitos;
 import servicios.*;
 
 /**
@@ -53,15 +55,27 @@ public class AddJuego extends HttpServlet {
 			throws ServletException, IOException {
     	int idRequisito = s.maxId();
     	String procesador = request.getParameter("procesador");
-    	String gráfica = request.getParameter("grafica");
+    	String grafica = request.getParameter("grafica");
     	String ram = request.getParameter("ram");
     	String so = request.getParameter("so");
-    	
-    	
-		String titulo = request.getParameter("titulo");
+    	String almacenamiento=request.getParameter("almacenamiento");
+		Requisitos r= new Requisitos(idRequisito,procesador,grafica,ram,so,almacenamiento);
 		
+		int idJuego = s.maxId();
+		String titulo=request.getParameter("titulo");
+		String descripcion=request.getParameter("descripcion");
+		Float precio=Float.parseFloat(request.getParameter("precio"));
+		Categorias c = null;
+		String categoria = request.getParameter("categoria");
+		for (Categorias cat:Categorias.values()) {
+			if (categoria.equals(cat.name())) {
+				c = cat;
+			}
+		}
+		Juego j=new Juego(idJuego,titulo,descripcion,r,null,precio,c);
 		
-		RequestDispatcher view =request.getRequestDispatcher("index.jsp");
+		s.addJuego(j);
+		RequestDispatcher view =request.getRequestDispatcher("/Init");
 		view.forward(request, response);
 
 		

@@ -27,23 +27,24 @@ public class Servicios implements IServicios {
 
 	@Override
 	public void addJuego(Juego juego) {
-		//iCon.addJuego(juego);
+		iCon.addjuego(juego);
 	}
 
 	@Override
 	public void delJuego(int id) {
-		//iCon.delJuego(id);
+		iCon.deljuego(id);
 	}
 
 	@Override
 	public void modJuego(Juego juego) {
-		//iCon.modJuego(juego);
+		iCon.modjuego(juego);
 	}
 
 	@Override
 	public int maxId() {
 		// TODO Auto-generated method stub
-		return 0;
+		
+		return iCon.maxId();
 	}
 
 	

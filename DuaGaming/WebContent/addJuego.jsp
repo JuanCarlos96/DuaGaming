@@ -165,14 +165,14 @@
 					<div class="get_in_touch_contents">
 						<h1>Nuevo juego</h1>
 						<p>Rellene los campos para crear un nuevo juego</p>
-						<form action="post">
+						<form action="/DuaGaming/AddJuego" method="post">
 							<div>
 								<input id="titulo" class="form_input input_name input_ph"
 									type="text" name="titulo" placeholder="Título"
 									required="required" data-error="Título obligatorio">
 									
 								<textarea id="descripcion" class="input_ph input_message"
-									name="message" placeholder="Descripción" rows="3" required
+									name="descripcion" placeholder="Descripción" rows="3" required
 									data-error="Por favor escriba una descripción"></textarea>
 									
 								<input id="precio" class="form_input input_name input_ph"
