@@ -243,21 +243,13 @@ public class Conector implements IConector{
 
 	@Override
 	public void deljuego(int id) {
-		// TODO Auto-generated method stub
-		
 		try{
-			
-		String sql = "DELETE * FROM juego WHERE id="+id;
-		
-		stmnt = conexion.prepareStatement(sql);
-		
-		stmnt.execute(sql);
-		
+			String sql = "DELETE * FROM juego WHERE id=?";
+			PreparedStatement ps = conexion.prepareStatement(sql);
+			ps.setInt(1, id);
+			ps.executeUpdate();
 		}catch(SQLException e){
-			
 			e.printStackTrace();
-		
-		
 		}
 	}
 
