@@ -40,5 +40,11 @@ public class Servicios implements IServicios {
 		//iCon.modJuego(juego);
 	}
 
+	@Override
+	public int maxId() {
+		// TODO Auto-generated method stub
+		return 0;
+	}
+
 	
 }

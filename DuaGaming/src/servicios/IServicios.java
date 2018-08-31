@@ -40,4 +40,6 @@ public interface IServicios {
 	 * @param juego El juego que se va modificar de la BBDD
 	 */
 	public void modJuego(Juego juego);
+	
+	public int maxId();
 }

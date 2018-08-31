@@ -244,13 +244,38 @@ public class Conector implements IConector{
 	@Override
 	public void deljuego(int id) {
 		// TODO Auto-generated method stub
-		
+		String sql =
 	}
 
 	@Override
 	public void modjuego(Juego juego) {
 		// TODO Auto-generated method stub
 		
+	}
+
+	
+	@Override
+	public int maxId() {
+		int maxId = 0;
+		try{
+			String sql = "SELECT max(id) from juego";
+		
+			stmnt = conexion.prepareStatement(sql);
+			
+			ResultSet rs = stmnt.executeQuery(sql);
+			
+			while (rs.next()) {
+				maxId = rs.getInt("max(id)");
+			}
+			rs.close();
+			
+		}catch(SQLException e){
+			
+			e.printStackTrace();
+		
+		
+		}
+		return maxId+1;
 	}
 }
 
