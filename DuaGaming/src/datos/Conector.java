@@ -273,6 +273,7 @@ public class Conector implements IConector{
 			ps2.setInt(3, juego.getId());
 			ps2.setFloat(4, juego.getPrecio());
 			ps2.setString(5, juego.getCategorias().toString());
+			ps2.setInt(6, juego.getId());
 			ps2.executeUpdate();
 		}catch(SQLException e){
 			e.printStackTrace();

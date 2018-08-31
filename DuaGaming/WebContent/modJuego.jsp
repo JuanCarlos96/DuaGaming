@@ -165,7 +165,7 @@
 					<div class="get_in_touch_contents">
 						<h1>Modificar juego</h1>
 						<p>Rellene los campos para modificar un juego</p>
-						<form action="post">
+						<form action="/DuaGaming/ModJuego" method="post">
 							<div>
 								<input id="titulo" class="form_input input_name input_ph"
 									type="text" name="titulo" placeholder="Título" value="${juego.titulo}"
@@ -218,7 +218,7 @@
 							</div>
 							<div>
 								<input id="review_submit" type="submit"
-									class="red_button message_submit_btn trans_300" value="Añadir juego">
+									class="red_button message_submit_btn trans_300" value="Modificar juego">
 							</div>
 						</form>
 					</div>

@@ -202,13 +202,15 @@
 								</div>
 							</div>
 							<form action="/DuaGaming/DelJuego" method="post">
-							<center><div><input type="submit" class="btn btn-dark" value="Modificar">
-						<input type="submit" class="btn btn-dark" value="Borrar"></div></center>
+							<center><div>
+							<input type="submit" class="btn btn-dark" value="Borrar"></div></center>
 							<input type="hidden" id = "idJuego" name = "idJuego" value = "${juego.id}">
 							
 							</form>
-							
-							
+							<form action="/DuaGaming/PasarJuego" method="post">
+							<center><div><input type="submit" class="btn btn-dark" value="Modificar"></div></center>
+							<input type="hidden" id = "idJuego" name = "idJuego" value = "${juego.id}">
+							</form>
 						</div>
 						</c:forEach>	
 
