@@ -9,5 +9,5 @@ public interface IServicios {
 	
 	public ArrayList<Juego> getJuegosTitulo(String titulo);
 	
-		
+	public ArrayList<Juego> getJuegos();
 }

@@ -1,7 +1,6 @@
 package controladores;
 
 import java.io.IOException;
-import java.util.ArrayList;
 
 import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
@@ -10,8 +9,9 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
-import datos.Conector;
 import models.Juego;
+import servicios.IServicios;
+import servicios.Servicios;
 
 /**
  * Servlet implementation class InformacionJuego
@@ -20,7 +20,7 @@ import models.Juego;
 public class InformacionJuego extends HttpServlet {
 	private static final long serialVersionUID = 1L;
        
-	private Conector con = new Conector();
+	private IServicios s = new Servicios();
 	
     /**
      * @see HttpServlet#HttpServlet()
@@ -50,7 +50,7 @@ public class InformacionJuego extends HttpServlet {
 			throws ServletException, IOException {
 		int idJuego = Integer.parseInt(request.getParameter("idJuego"));
 		
-		Juego unJuego = con.getJuego(idJuego);
+		Juego unJuego = s.getJuego(idJuego);
 		request.setAttribute("Un_Juego", unJuego);
 		RequestDispatcher view =request.getRequestDispatcher("single.jsp");
 		view.forward(request, response);

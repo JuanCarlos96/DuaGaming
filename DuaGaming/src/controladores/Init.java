@@ -10,8 +10,9 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
-import datos.Conector;
 import models.Juego;
+import servicios.IServicios;
+import servicios.Servicios;
 
 /**
  * Servlet implementation class Init
@@ -20,7 +21,7 @@ import models.Juego;
 public class Init extends HttpServlet {
 	private static final long serialVersionUID = 1L;
 
-	private Conector con = new Conector();
+	private IServicios s = new Servicios();
 
 	/**
 	 * @see HttpServlet#HttpServlet()
@@ -52,7 +53,7 @@ public class Init extends HttpServlet {
 
 	protected void processRequest(HttpServletRequest request, HttpServletResponse response)
 			throws ServletException, IOException {
-		ArrayList<Juego> juegos = con.getJuegos();
+		ArrayList<Juego> juegos = s.getJuegos();
 		request.setAttribute("lista", juegos);
 		RequestDispatcher view =request.getRequestDispatcher("index.jsp");
 		view.forward(request, response);

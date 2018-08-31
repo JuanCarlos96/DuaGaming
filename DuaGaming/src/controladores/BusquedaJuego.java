@@ -10,8 +10,9 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
-import datos.Conector;
 import models.Juego;
+import servicios.IServicios;
+import servicios.Servicios;
 
 /**
  * Servlet implementation class BusquedaJuego
@@ -20,7 +21,7 @@ import models.Juego;
 public class BusquedaJuego extends HttpServlet {
 	private static final long serialVersionUID = 1L;
        
-	private Conector con = new Conector();
+	private IServicios s = new Servicios();
 	
     /**
      * @see HttpServlet#HttpServlet()
@@ -50,7 +51,7 @@ public class BusquedaJuego extends HttpServlet {
 
 	protected void processRequest(HttpServletRequest request, HttpServletResponse response)
 			throws ServletException, IOException {
-		ArrayList<Juego> juegos = con.getJuegosTitulo(request.getParameter("busqueda"));
+		ArrayList<Juego> juegos = s.getJuegosTitulo(request.getParameter("busqueda"));
 		request.setAttribute("lista", juegos);
 		RequestDispatcher view =request.getRequestDispatcher("search.jsp");
 		view.forward(request, response);
