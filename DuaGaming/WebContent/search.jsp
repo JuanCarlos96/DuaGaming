@@ -31,72 +31,73 @@
 
 	<div class="super_container">
 
+		
 		<!-- Header -->
 
-		<header class="header trans_300">
-			<!-- Top Navigation -->
+		<header class="header trans_300"> <!-- Top Navigation -->
 
-			<div class="top_nav">
-				<div class="container">
-					<div class="row">
-						<div class="col-md-6">
-							<div class="top_nav_left">Envios gratis a partir de 50€</div>
-						</div>
-						<div class="col-md-6 text-right">
-							<div class="top_nav_right">
-								<ul class="top_nav_menu">
+		<div class="top_nav">
+			<div class="container">
+				<div class="row">
+					<div class="col-md-6">
+						<div class="top_nav_left">Envios gratis a partir de 50€</div>
+					</div>
+					<div class="col-md-6 text-right">
+						<div class="top_nav_right">
+							<ul class="top_nav_menu">
 
-									<!-- Currency / Language / My Account -->
+								<!-- Currency / Language / My Account -->
 
-									<li class="currency"><a href="#"> Euro </a></li>
-									<li class="language"><a href="#"> Español </a></li>
-									<li class="account"><a href="#"> Mi Cuenta </a></li>
-								</ul>
-							</div>
+								<li class="currency"><a href="#"> Euro </a></li>
+								<li class="language"><a href="#"> Español </a></li>
+								<li class="account"><a href="#"> Mi Cuenta </a></li>
+							</ul>
 						</div>
 					</div>
 				</div>
 			</div>
+		</div>
 
-			<!-- Main Navigation -->
+		<!-- Main Navigation -->
 
-			<div class="main_nav_container">
-				<div class="container">
-					<div class="row">
-						<div class="col-lg-12 text-right">
-							<div class="logo_container">
-								<a href="#">Dua<span>Gaming</span></a>
-							</div>
-							<nav class="navbar">
-								<ul class="navbar_menu">
-									<li><a href="index.html">home</a></li>
-									<li><a href="#">shop</a></li>
-									<li><a href="#">promocion</a></li>
-									<li><a href="#">+vendido</a></li>
-									<li><a href="contact.html">contacto</a></li>
-								</ul>
-								<ul class="navbar_user">
-									<li><form action="/DuaGaming/BusquedaJuego" method="post">
+		<div class="main_nav_container">
+			<div class="container">
+				<div class="row">
+					<div class="col-lg-12 text-right">
+						<div class="logo_container">
+							<a href="index.jsp">Dua<span>Gaming</span></a>
+						</div>
+						<nav class="navbar">
+						<ul class="navbar_menu">
+							<li><a href="/DuaGaming/Init">home</a></li>
+							<li><a href="backoffice.jsp">BackOffice</a></li>
+							<li><a href="categories.jsp">tienda</a></li>
+							<li><a href="">+vendido</a></li>
+							<li><a href="contact.jsp">contacto</a></li>
+						</ul>
+						<ul class="navbar_user">
+							<li><form action="/DuaGaming/BusquedaJuego" method="post">
 										<input type="search" name="busqueda">
 										<input type="submit" value="Buscar" class="btn btn-dark">
 									</form></li>
-									<li><a href="#"><i class="fa fa-user"
-											aria-hidden="true"></i></a></li>
-									<li class="checkout"><a href="#"> <i
-											class="fa fa-shopping-cart" aria-hidden="true"></i> <span
-											id="checkout_items" class="checkout_items">0</span>
-									</a></li>
-								</ul>
-								<div class="hamburger_container">
-									<i class="fa fa-bars" aria-hidden="true"></i>
-								</div>
-							</nav>
+							<li><a href="#"><i class="fa fa-user" aria-hidden="true"></i></a></li>
+							<li class="checkout"><a href="#"> <i
+									class="fa fa-shopping-cart" aria-hidden="true"></i> <span
+									id="checkout_items" class="checkout_items">0</span>
+							</a></li>
+						</ul>
+						<div class="hamburger_container">
+							<i class="fa fa-bars" aria-hidden="true"></i>
 						</div>
+						</nav>
 					</div>
 				</div>
 			</div>
+		</div>
 
 		</header>
+
+
 
 		<div class="fs_menu_overlay"></div>
 

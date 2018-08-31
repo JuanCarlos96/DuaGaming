@@ -27,7 +27,7 @@
 
 	<div class="super_container">
 
-	<!-- Header -->
+		<!-- Header -->
 
 		<header class="header trans_300"> <!-- Top Navigation -->
 
@@ -92,6 +92,7 @@
 
 		</header>
 
+
 		<div class="fs_menu_overlay"></div>
 
 		<!-- Hamburger Menu -->
@@ -140,9 +141,7 @@
 
 		<!-- Slider -->
 
-		<div class="main_slider"
-			style="background-image: url(images/slider_1.png)">
-			<div class="container fill_height">
+		
 				<div class="row align-items-center fill_height">
 					<div class="col">
 						<div class="main_slider_content">
@@ -152,8 +151,8 @@
 						</div>
 					</div>
 				</div>
-			</div>
-		</div>
+		
+		
 
 
 
@@ -162,7 +161,7 @@
 			<div class="row">
 				<div class="col text-center">
 					<div class="section_title new_arrivals_title">
-						<h3><font color="grey">Todos nuestros juegos</font></h3>
+						<h3><font color="grey">Todos los juegos</font></h3>
 					</div>
 				</div>
 			</div>
@@ -214,61 +213,7 @@
 		</div>
 	</div>
 	
-		<!-- Deal of the week -->
-
-		<div class="deal_ofthe_week">
-			<div class="container">
-				<div class="row align-items-center">
-					<div class="col-lg-6">
-						<div class="deal_ofthe_week_img">
-							<img src="images/cristiano.png" alt="">
-						</div>
-					</div>
-					<div class="col-lg-6 text-right deal_ofthe_week_col">
-						<div
-							class="deal_ofthe_week_content d-flex flex-column align-items-center float-right">
-							<div class="section_title">
-								<h2>¡Oferta!</h2>
-								<p><h4>FIFA 19</h4></p>
-							</div>
-							<ul class="timer">
-								<li
-									class="d-inline-flex flex-column justify-content-center align-items-center">
-									<div id="day" class="timer_num">03</div>
-									<div class="timer_unit">Day</div>
-								</li>
-								<li
-									class="d-inline-flex flex-column justify-content-center align-items-center">
-									<div id="hour" class="timer_num">15</div>
-									<div class="timer_unit">Hours</div>
-								</li>
-								<li
-									class="d-inline-flex flex-column justify-content-center align-items-center">
-									<div id="minute" class="timer_num">45</div>
-									<div class="timer_unit">Mins</div>
-								</li>
-								<li
-									class="d-inline-flex flex-column justify-content-center align-items-center">
-									<div id="second" class="timer_num">23</div>
-									<div class="timer_unit">Sec</div>
-								</li>
-							</ul>
-							<form action="/DuaGaming/InformacionJuego" method="post">
-							<center><div><input type="submit" class="btn btn-dark" value="Comprar ahora"></div></center>
-							<input type="hidden" id = "idJuego" name = "idJuego" value = "12">
-							
-							</form>
-							
-							</div>
-						</div>
-					</div>
-				</div>
-			</div>
-		</div>
-
-		<!-- Best Sellers -->
-
-
+		
 		<!-- Slider Navigation -->
 
 		<div
@@ -285,133 +230,7 @@
 	</div>
 	</div>
 
-	<!-- Benefit -->
-
-	<div class="benefit">
-		<div class="container">
-			<div class="row benefit_row">
-				<div class="col-lg-3 benefit_col">
-					<div class="benefit_item d-flex flex-row align-items-center">
-						<div class="benefit_icon">
-							<i class="fa fa-truck" aria-hidden="true"></i>
-						</div>
-						<div class="benefit_content">
-							<h6>Envío gratuito</h6>
-							<p>Si eres cliente habitual tendrás envio gratuito</p>
-						</div>
-					</div>
-				</div>
-				<div class="col-lg-3 benefit_col">
-					<div class="benefit_item d-flex flex-row align-items-center">
-						<div class="benefit_icon">
-							<i class="fa fa-money" aria-hidden="true"></i>
-						</div>
-						<div class="benefit_content">
-							<h6>Elige la forma de pago</h6>
-							<p>Puedes pagar al recibir el pedido</p>
-						</div>
-					</div>
-				</div>
-				<div class="col-lg-3 benefit_col">
-					<div class="benefit_item d-flex flex-row align-items-center">
-						<div class="benefit_icon">
-							<i class="fa fa-undo" aria-hidden="true"></i>
-						</div>
-						<div class="benefit_content">
-							<h6>15 dias para devolverlo</h6>
-							<p>Puedes probar el juego y si no te convence, lo devuelves</p>
-						</div>
-					</div>
-				</div>
-				<div class="col-lg-3 benefit_col">
-					<div class="benefit_item d-flex flex-row align-items-center">
-						<div class="benefit_icon">
-							<i class="fa fa-clock-o" aria-hidden="true"></i>
-						</div>
-						<div class="benefit_content">
-							<h6>El envío más rápido asegurado</h6>
-							<p>No esperes para jugar</p>
-						</div>
-					</div>
-				</div>
-			</div>
-		</div>
-	</div>
-
-	<!-- Blogs -->
-
-
-
-	<!-- Newsletter -->
-
-	<div class="newsletter">
-		<div class="container">
-			<div class="row">
-				<div class="col-lg-6">
-					<div
-						class="newsletter_text d-flex flex-column justify-content-center align-items-lg-start align-items-md-center text-center">
-						<h4>Newsletter</h4>
-						<p>Suscribete para obtener todas las novedades</p>
-					</div>
-				</div>
-				<div class="col-lg-6">
-					<form action="post">
-						<div
-							class="newsletter_form d-flex flex-md-row flex-column flex-xs-column align-items-center justify-content-lg-end justify-content-center">
-							<input id="newsletter_email" type="email" placeholder="Tu email"
-								required="required" data-error="Valid email is required.">
-							<button id="newsletter_submit" type="submit"
-								class="newsletter_submit_btn trans_300" value="Submit">subscribete</button>
-						</div>
-					</form>
-				</div>
-			</div>
-		</div>
-	</div>
-
-	<!-- Footer -->
-
-	<footer class="footer">
-	<div class="container">
-		<div class="row">
-			<div class="col-lg-6">
-				<div
-					class="footer_nav_container d-flex flex-sm-row flex-column align-items-center justify-content-lg-start justify-content-center text-center">
-					<ul class="footer_nav">
-						<li><a href="#">Preguntas</a></li>
-						<li><a href="contact.jsp">Contacto</a></li>
-					</ul>
-				</div>
-			</div>
-			<div class="col-lg-6">
-				<div
-					class="footer_social d-flex flex-row align-items-center justify-content-lg-end justify-content-center">
-					<ul>
-						<li><a href="#"><i class="fa fa-facebook"
-								aria-hidden="true"></i></a></li>
-						<li><a href="#"><i class="fa fa-twitter"
-								aria-hidden="true"></i></a></li>
-						<li><a href="#"><i class="fa fa-instagram"
-								aria-hidden="true"></i></a></li>
-						<li><a href="#"><i class="fa fa-skype" aria-hidden="true"></i></a></li>
-						<li><a href="#"><i class="fa fa-pinterest"
-								aria-hidden="true"></i></a></li>
-					</ul>
-				</div>
-			</div>
-		</div>
-		<div class="row">
-			<div class="col-lg-12">
-				<div class="footer_nav_container">
-					<div class="cr">
-						©2018 All Rights Reserverd. This template is made with <i
-							class="fa fa-heart-o" aria-hidden="true"></i> by <a href="#">DuaGaming</a>
-					</div>
-				</div>
-			</div>
-		</div>
-	</div>
-	</footer>
+	
 
 	</div>
 

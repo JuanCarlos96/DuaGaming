@@ -16,20 +16,18 @@ import servicios.IServicios;
 import servicios.Servicios;
 
 /**
- * Servlet Init.Le damos alias para llamarlo desde los jsp
- * @author DuaGaming
- *
+ * Servlet implementation class DelJuego
  */
-@WebServlet("/Init")
-public class Init extends HttpServlet {
+@WebServlet("/DelJuego")
+public class DelJuego extends HttpServlet {
 	private static final long serialVersionUID = 1L;
-
+       
 	private IServicios s = new Servicios();
 
 	/**
 	 * @see HttpServlet#HttpServlet()
 	 */
-	public Init() {
+	public DelJuego() {
 		super();
 		// TODO Auto-generated constructor stub
 	}
@@ -61,7 +59,7 @@ public class Init extends HttpServlet {
 		HttpSession sesion = request.getSession();
 		sesion.setAttribute("lista", juegos);
 		
-		RequestDispatcher view =request.getRequestDispatcher("index.jsp");
+		RequestDispatcher view =request.getRequestDispatcher("");
 		view.forward(request, response);
 	}
 

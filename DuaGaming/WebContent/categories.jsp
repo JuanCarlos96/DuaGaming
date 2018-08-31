@@ -31,6 +31,7 @@
 
 	<div class="super_container">
 
+		
 		<!-- Header -->
 
 		<header class="header trans_300"> <!-- Top Navigation -->
@@ -64,19 +65,21 @@
 				<div class="row">
 					<div class="col-lg-12 text-right">
 						<div class="logo_container">
-							<a href="#">Dua<span>Gaming</span></a>
+							<a href="index.jsp">Dua<span>Gaming</span></a>
 						</div>
 						<nav class="navbar">
 						<ul class="navbar_menu">
-							<li><a href="index.html">home</a></li>
-							<li><a href="#">shop</a></li>
-							<li><a href="#">promocion</a></li>
-							<li><a href="#">+vendido</a></li>
-							<li><a href="contact.html">contacto</a></li>
+							<li><a href="/DuaGaming/Init">home</a></li>
+							<li><a href="backoffice.jsp">BackOffice</a></li>
+							<li><a href="categories.jsp">tienda</a></li>
+							<li><a href="">+vendido</a></li>
+							<li><a href="contact.jsp">contacto</a></li>
 						</ul>
 						<ul class="navbar_user">
-							<li><a href="#"><i class="fa fa-search"
-									aria-hidden="true"></i></a></li>
+							<li><form action="/DuaGaming/BusquedaJuego" method="post">
+										<input type="search" name="busqueda">
+										<input type="submit" value="Buscar" class="btn btn-dark">
+									</form></li>
 							<li><a href="#"><i class="fa fa-user" aria-hidden="true"></i></a></li>
 							<li class="checkout"><a href="#"> <i
 									class="fa fa-shopping-cart" aria-hidden="true"></i> <span
@@ -93,6 +96,7 @@
 		</div>
 
 		</header>
+
 
 		<div class="fs_menu_overlay"></div>
 

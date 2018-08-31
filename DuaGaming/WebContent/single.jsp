@@ -66,15 +66,15 @@ ${Un_Juego.titulo}
 				<div class="row">
 					<div class="col-lg-12 text-right">
 						<div class="logo_container">
-							<a href="#">Dua<span>Gaming</span></a>
+							<a href="index.jsp">Dua<span>Gaming</span></a>
 						</div>
 						<nav class="navbar">
 						<ul class="navbar_menu">
-							<li><a href="index.html">home</a></li>
-							<li><a href="#">tienda</a></li>
-							<li><a href="#">promocion</a></li>
-							<li><a href="#">+vendido</a></li>
-							<li><a href="contact.html">contacto</a></li>
+							<li><a href="/DuaGaming/Init">home</a></li>
+							<li><a href="backoffice.jsp">BackOffice</a></li>
+							<li><a href="categories.jsp">tienda</a></li>
+							<li><a href="">+vendido</a></li>
+							<li><a href="contact.jsp">contacto</a></li>
 						</ul>
 						<ul class="navbar_user">
 							<li><form action="/DuaGaming/BusquedaJuego" method="post">
@@ -97,53 +97,6 @@ ${Un_Juego.titulo}
 		</div>
 
 		</header>
-
-		<div class="fs_menu_overlay"></div>
-
-		<!-- Hamburger Menu -->
-
-		<div class="hamburger_menu">
-			<div class="hamburger_close">
-				<i class="fa fa-times" aria-hidden="true"></i>
-			</div>
-			<div class="hamburger_menu_content text-right">
-				<ul class="menu_top_nav">
-					<li class="menu_item has-children"><a href="#"> usd <i
-							class="fa fa-angle-down"></i>
-					</a>
-						<ul class="menu_selection">
-							<li><a href="#">cad</a></li>
-							<li><a href="#">aud</a></li>
-							<li><a href="#">eur</a></li>
-							<li><a href="#">gbp</a></li>
-						</ul></li>
-					<li class="menu_item has-children"><a href="#"> Español <i
-							class="fa fa-angle-down"></i>
-					</a>
-						<ul class="menu_selection">
-							<li><a href="#">French</a></li>
-							<li><a href="#">Italian</a></li>
-							<li><a href="#">German</a></li>
-							<li><a href="#">Spanish</a></li>
-						</ul></li>
-					<li class="menu_item has-children"><a href="#"> Mi Cuenta
-							<i class="fa fa-angle-down"></i>
-					</a>
-						<ul class="menu_selection">
-							<li><a href="#"><i class="fa fa-sign-in"
-									aria-hidden="true"></i>Iniciar sesión</a></li>
-							<li><a href="#"><i class="fa fa-user-plus"
-									aria-hidden="true"></i>Registrar</a></li>
-						</ul></li>
-					<li class="menu_item"><a href="#">home</a></li>
-					<li class="menu_item"><a href="#">tienda</a></li>
-					<li class="menu_item"><a href="#">promociones</a></li>
-					<li class="menu_item"><a href="#">paginas</a></li>
-					<li class="menu_item"><a href="#">blog</a></li>
-					<li class="menu_item"><a href="#">contacto</a></li>
-				</ul>
-			</div>
-		</div>
 
 		<div class="container single_product_container">
 			<div class="row">
