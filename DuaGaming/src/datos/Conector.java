@@ -244,7 +244,7 @@ public class Conector implements IConector{
 	@Override
 	public void deljuego(int id) {
 		try{
-			String sql = "DELETE * FROM juego WHERE id=?";
+			String sql = "DELETE FROM juego WHERE id=?";
 			PreparedStatement ps = conexion.prepareStatement(sql);
 			ps.setInt(1, id);
 			ps.executeUpdate();
