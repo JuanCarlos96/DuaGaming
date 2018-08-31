@@ -11,6 +11,7 @@ import models.Categorias;
 import java.util.ArrayList;
 import java.util.Properties;
 
+
 public class Conector implements IConector{
 
 	 private Connection conexion = null;
@@ -191,4 +192,65 @@ public class Conector implements IConector{
 		return juegos;
 	}
 
+	@Override
+	public void addjuego(Juego juego) {
+		// TODO Auto-generated method stub
+
+		
+		
+		//insert a la base de datos
+		try{
+			
+		String 	sqlCat = "INSERT INTO Requisito (idRequisito, procesador,grafica,ram,so,almacenamiento)"
+				+"VALUES("
+				+juego.getId()+","
+				+juego.getRequisitos().getProcesador()+","
+				+juego.getRequisitos().getGrafica()+","
+				+juego.getRequisitos().getRam()+","
+				+juego.getRequisitos().getSo()+","
+				+juego.getRequisitos().getAlmacenamiento()
+				+")";
+		
+		stmnt = conexion.prepareStatement(sqlCat);
+		
+		stmnt.execute(sqlCat);
+		
+		
+			
+		String sqlJuego ="INSERT INTO Juego (id,titulodescripcion,requisitos,caratula,precio,categoria)"
+				+ "VALUES("
+				+juego.getId()+","
+				+juego.getTitulo()+","
+				+juego.getDescripcion()+","
+				+juego.getRequisitos().getId()+",caratula/defecto.jpg,"
+				+juego.getPrecio()+","
+				+juego.getCategorias().toString()
+				+")";
+		
+		stmnt = conexion.prepareStatement(sqlJuego);
+		
+		stmnt.execute(sqlJuego);
+		
+		}catch(SQLException e){
+			
+			e.printStackTrace();
+
+         }
+	
+	
+
+    }
+
+	@Override
+	public void deljuego(int id) {
+		// TODO Auto-generated method stub
+		
+	}
+
+	@Override
+	public void modjuego(Juego juego) {
+		// TODO Auto-generated method stub
+		
+	}
 }
+
