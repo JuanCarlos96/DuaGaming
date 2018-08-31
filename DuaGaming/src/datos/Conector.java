@@ -201,7 +201,7 @@ public class Conector implements IConector{
 		//insert a la base de datos
 		try{
 			
-		String 	sqlCat = "INSERT INTO Requisito (idRequisito, procesador,grafica,ram,so,almacenamiento)"
+		String 	sqlReq = "INSERT INTO Requisito (idRequisito, procesador,grafica,ram,so,almacenamiento)"
 				+"VALUES("
 				+juego.getId()+","
 				+juego.getRequisitos().getProcesador()+","
@@ -211,9 +211,9 @@ public class Conector implements IConector{
 				+juego.getRequisitos().getAlmacenamiento()
 				+")";
 		
-		stmnt = conexion.prepareStatement(sqlCat);
+		stmnt = conexion.prepareStatement(sqlReq);
 		
-		stmnt.execute(sqlCat);
+		stmnt.execute(sqlReq);
 		
 		
 			
@@ -244,13 +244,63 @@ public class Conector implements IConector{
 	@Override
 	public void deljuego(int id) {
 		// TODO Auto-generated method stub
-		String sql =
+		
+		try{
+			
+		String sql = "DELETE * FROM juego WHERE id="+id;
+		
+		stmnt = conexion.prepareStatement(sql);
+		
+		stmnt.execute(sql);
+		
+		}catch(SQLException e){
+			
+			e.printStackTrace();
+		
+		
+		}
 	}
 
 	@Override
 	public void modjuego(Juego juego) {
 		// TODO Auto-generated method stub
 		
+		try{
+		String sqlReq = "UPDATE requisito SET"
+				+"(procesador,grafica,ram,so,almacenamiento)"
+				+"VALUES("
+				+juego.getRequisitos().getProcesador()+","
+				+juego.getRequisitos().getGrafica()+","
+				+juego.getRequisitos().getRam()+","
+				+juego.getRequisitos().getSo()+","
+				+juego.getRequisitos().getAlmacenamiento()
+				+")WHERE idRequisito="+juego.getRequisitos().getId();
+		
+		stmnt = conexion.prepareStatement(sqlReq);
+		
+		stmnt.execute(sqlReq);
+		
+		
+		String sqlJuego= "UPDATE juego SET" 
+				+"(titulo,descripcion,requisitos,precio,categoria)"
+				+ "VALUES("
+				+juego.getTitulo()+","
+				+juego.getDescripcion()+","
+				+juego.getRequisitos().getId()+","
+				+juego.getPrecio()+","
+				+juego.getCategorias().toString()
+				+")WHERE id="+juego.getId();
+		
+		stmnt = conexion.prepareStatement(sqlJuego);
+		
+		stmnt.execute(sqlJuego);
+		
+		}catch(SQLException e){
+			
+			e.printStackTrace();
+		
+		
+		}
 	}
 
 	
