@@ -1,7 +1,7 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
-<html lang="en">
+<html lang="es">
 <head>
 <title>Modificar juego</title>
 <meta charset="utf-8">
@@ -63,7 +63,7 @@
 				<div class="row">
 					<div class="col-lg-12 text-right">
 						<div class="logo_container">
-							<a href="#">Dua<span>Gaming</span></a>
+							<a href="/DuaGaming/index.jsp">Dua<span>Gaming</span></a>
 						</div>
 						<nav class="navbar">
 						<ul class="navbar_menu">
@@ -149,7 +149,7 @@
 					<div class="breadcrumbs d-flex flex-row align-items-center">
 						<ul>
 							<li><a href="index.html">Home</a></li>
-							<li class="active"><a href="#"><i
+							<li class="active"><a href="/DuaGaming/index.jsp"><i
 									class="fa fa-angle-right" aria-hidden="true"></i>Modificar juego</a></li>
 						</ul>
 					</div>
@@ -172,8 +172,8 @@
 									required="required" data-error="Título obligatorio">
 									
 								<textarea id="descripcion" class="input_ph input_message"
-									name="descripcion" placeholder="Descripción" value="${juego.descripcion}" rows="3" required
-									data-error="Por favor escriba una descripción"></textarea>
+									name="descripcion" placeholder="Descripción" rows="10" required
+									data-error="Por favor escriba una descripción">${juego.descripcion}</textarea>
 									
 								<input id="precio" class="form_input input_name input_ph"
 									type="text" name="precio" placeholder="Precio" value="${juego.precio}"

@@ -201,16 +201,22 @@
 								
 								</div>
 							</div>
-							<form action="/DuaGaming/DelJuego" method="post">
-							<center><div>
-							<input type="submit" class="btn btn-dark" value="Borrar"></div></center>
-							<input type="hidden" id = "idJuego" name = "idJuego" value = "${juego.id}">
-							
-							</form>
-							<form action="/DuaGaming/PasarJuego" method="post">
-							<center><div><input type="submit" class="btn btn-dark" value="Modificar"></div></center>
-							<input type="hidden" id = "idJuego" name = "idJuego" value = "${juego.id}">
-							</form>
+							<center>
+								<table>
+									<tr>
+										<form action="/DuaGaming/PasarJuego" method="post">
+											<input type="submit" class="btn btn-dark" value="Modificar">
+											<input type="hidden" id = "idJuego" name = "idJuego" value = "${juego.id}">
+										</form>
+									</tr>
+									<tr>
+										<form action="/DuaGaming/DelJuego" method="post">
+											<input type="submit" class="btn btn-dark" value="Borrar">
+											<input type="hidden" id = "idJuego" name = "idJuego" value = "${juego.id}">
+										</form>
+									</tr>
+								</table>
+							</center>
 						</div>
 						</c:forEach>	
 
