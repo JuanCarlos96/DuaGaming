@@ -80,7 +80,8 @@ public class Conector implements IConector{
 						getRequisito(rs.getInt("requisitos")),
 						rs.getString("caratula"),
 						rs.getFloat("precio"),
-						categoria);
+						categoria,
+						rs.getString("video"));
 			}
 			rs.close();
 		}catch(SQLException e){
@@ -143,7 +144,8 @@ public class Conector implements IConector{
 						getRequisito(rs.getInt("requisitos")),
 						rs.getString("caratula"),
 						rs.getFloat("precio"),
-						categoria));
+						categoria,
+						rs.getString("video")));
 			}
 		} catch (SQLException e) {
 			e.printStackTrace();
@@ -183,7 +185,8 @@ public class Conector implements IConector{
 						getRequisito(rs.getInt("requisitos")),
 						rs.getString("caratula"),
 						rs.getFloat("precio"),
-						categoria));
+						categoria,
+						rs.getString("video")));
 			}
 			rs.close();
 		}catch(SQLException e){
@@ -194,10 +197,6 @@ public class Conector implements IConector{
 
 	@Override
 	public void addjuego(Juego juego) {
-		// TODO Auto-generated method stub
-
-		
-		
 		//insert a la base de datos
 		try{
 			
@@ -215,16 +214,15 @@ public class Conector implements IConector{
 		
 		stmnt.execute(sqlReq);
 		
-		
-			
-		String sqlJuego ="INSERT INTO Juego (id,titulo,descripcion,requisitos,caratula,precio,categoria)"
+		String sqlJuego ="INSERT INTO Juego (id,titulo,descripcion,requisitos,caratula,precio,categoria,video)"
 				+ "VALUES("
 				+juego.getId()+",'"
 				+juego.getTitulo()+"','"
 				+juego.getDescripcion()+"',"
-				+juego.getRequisitos().getId()+",'caratula/defecto.jpg',"
+				+juego.getRequisitos().getId()+",'caratulas/defecto.jpg',"
 				+juego.getPrecio()+",'"
-				+juego.getCategorias().toString()
+				+juego.getCategorias().toString()+"','"
+				+juego.getVideo()
 				+"')";
 		
 		stmnt = conexion.prepareStatement(sqlJuego);
@@ -232,22 +230,22 @@ public class Conector implements IConector{
 		stmnt.execute(sqlJuego);
 		
 		}catch(SQLException e){
-			
 			e.printStackTrace();
-
-         }
-	
-	
-
+        }
     }
 
 	@Override
 	public void deljuego(int id) {
 		try{
-			String sql = "DELETE FROM juego WHERE id=?";
+			String sql = "DELETE FROM requisito WHERE idRequisito=?";
 			PreparedStatement ps = conexion.prepareStatement(sql);
 			ps.setInt(1, id);
 			ps.executeUpdate();
+			
+			String sql2 = "DELETE FROM juego WHERE id=?";
+			PreparedStatement ps2 = conexion.prepareStatement(sql2);
+			ps2.setInt(1, id);
+			ps2.executeUpdate();
 		}catch(SQLException e){
 			e.printStackTrace();
 		}
@@ -266,14 +264,15 @@ public class Conector implements IConector{
 			ps.setInt(6, juego.getId());
 			ps.executeUpdate();
 			
-			String sql2 = "update juego set titulo=?, descripcion=?, requisitos=?, precio=?, categoria=? where id=?";
+			String sql2 = "update juego set titulo=?, descripcion=?, requisitos=?, precio=?, categoria=?, video=? where id=?";
 			PreparedStatement ps2 = conexion.prepareStatement(sql2);
 			ps2.setString(1, juego.getTitulo());
 			ps2.setString(2, juego.getDescripcion());
 			ps2.setInt(3, juego.getId());
 			ps2.setFloat(4, juego.getPrecio());
 			ps2.setString(5, juego.getCategorias().toString());
-			ps2.setInt(6, juego.getId());
+			ps2.setString(6, juego.getVideo());
+			ps2.setInt(7, juego.getId());
 			ps2.executeUpdate();
 		}catch(SQLException e){
 			e.printStackTrace();

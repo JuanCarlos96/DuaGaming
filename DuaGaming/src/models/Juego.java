@@ -9,9 +9,10 @@ public class Juego {
 	private String caratula;
 	private float precio;
 	private Categorias categorias;
+	private String video;
 	
 	
-	public Juego(int id, String titulo, String descripcion, Requisitos requisitos, String caratula, float precio, Categorias categorias) {
+	public Juego(int id, String titulo, String descripcion, Requisitos requisitos, String caratula, float precio, Categorias categorias, String video) {
 		super();
 		this.id = id;
 		this.titulo = titulo;
@@ -20,6 +21,7 @@ public class Juego {
 		this.caratula = caratula;
 		this.precio = precio;
 		this.categorias = categorias;
+		this.video = video;
 	}
 
 
@@ -90,5 +92,15 @@ public class Juego {
 
 	public void setCategorias(Categorias categorias) {
 		this.categorias = categorias;
+	}
+
+
+	public String getVideo() {
+		return video;
+	}
+
+
+	public void setVideo(String video) {
+		this.video = video;
 	}
 }

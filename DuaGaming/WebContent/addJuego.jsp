@@ -191,6 +191,10 @@
 									<option value="Shooter">Shooter</option>
 									<option value="Simulacion">Simulación</option>
 								</select>
+								
+								<input id="video" class="form_input input_name input_ph"
+									type="text" name="video" placeholder="Vídeo"
+									required="required" data-error="Vídeo obligatorio">
 								<br/><br/><br/>
 								<p><b>Requisitos:</b></p>
 								

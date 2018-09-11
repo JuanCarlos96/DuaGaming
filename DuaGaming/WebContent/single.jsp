@@ -206,8 +206,8 @@ ${Un_Juego.titulo}
 									<div class="tab_text_block">
 										<h2>${Un_Juego.titulo}</h2>
 										<p>
-											<iframe width="560" height="315"
-												src=""
+											<iframe width="1008" height="567"
+												src="${Un_Juego.video}"
 												frameborder="0" allow="autoplay; encrypted-media"
 												allowfullscreen></iframe>
 										</p>

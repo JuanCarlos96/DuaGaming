@@ -80,7 +80,8 @@ public class ModJuego extends HttpServlet {
 				c = cat;
 			}
 		}
-		Juego j=new Juego(id,titulo,descripcion,r,null,precio,c);
+		String video = request.getParameter("video");
+		Juego j=new Juego(idJuegos,titulo,descripcion,r,null,precio,c,video);
 	
 		s.modJuego(j);
 		RequestDispatcher view =request.getRequestDispatcher("/Init");

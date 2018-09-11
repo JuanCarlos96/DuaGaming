@@ -72,7 +72,8 @@ public class AddJuego extends HttpServlet {
 				c = cat;
 			}
 		}
-		Juego j=new Juego(idJuego,titulo,descripcion,r,null,precio,c);
+		String video = request.getParameter("video");
+		Juego j=new Juego(idJuego,titulo,descripcion,r,null,precio,c,video);
 		
 		s.addJuego(j);
 		RequestDispatcher view =request.getRequestDispatcher("/Init");
