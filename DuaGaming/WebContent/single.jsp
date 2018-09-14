@@ -106,7 +106,7 @@ ${Un_Juego.titulo}
 
 					<div class="breadcrumbs d-flex flex-row align-items-center">
 						<ul>
-							<li><a href="index.html">Home</a></li>
+							<li><a href="index.jsp">Home</a></li>
 							<li><a href="categories.jsp"><i
 									class="fa fa-angle-right" aria-hidden="true"></i>${Un_Juego.categorias}</a></li>
 							<li class="active"><a href="#"><i
